@@ -1,3 +1,4 @@
 export default {
-  SAMPLE: 'SAMPLE'
+  SAMPLE: 'SAMPLE',
+  CHANGE_COMPANY_ID: 'CHANGE_COMPANY_ID'
 };

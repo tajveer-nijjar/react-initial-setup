@@ -2,16 +2,21 @@ import { handleActions } from 'redux-actions';
 
 import { types } from '../constants';
 
-const INITIAL_STATE = {};
+const INITIAL_STATE = {
+  companyId: 1
+};
 
-// function openActionType(state) {
-//   return { ...state };
-// }
+const changeCompanyId = (state) => {
+  return {
+    ...state,
+    companyId: 2
+  };
+};
 
 //Handles the incoming actions.
 export default handleActions(
   {
-    // [types.ACTION_TYPE]: openActionType
+    [types.CHANGE_COMPANY_ID]: changeCompanyId
   },
   INITIAL_STATE
 );
