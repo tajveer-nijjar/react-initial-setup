@@ -1,21 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './store';
 import rootSaga from './sagas';
+import history from './history';
 
 const store = configureStore();
 store.runSaga(rootSaga);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <Router history={history}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
