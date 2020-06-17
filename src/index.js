@@ -8,8 +8,8 @@ import App from './App';
 import * as serviceWorker from './utils/serviceWorker';
 import configureStore from './store';
 import rootSaga from './sagas';
-import history from './history';
-import theme from './theme';
+import history from './utils/history';
+import theme from './utils/theme';
 
 const store = configureStore();
 store.runSaga(rootSaga);
