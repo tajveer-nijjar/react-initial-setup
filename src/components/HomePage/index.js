@@ -12,7 +12,6 @@ function HomePage(props) {
 
   return (
     <React.Fragment>
-      <p>hello</p>
       <img src={user.picture} alt="Profile" />
 
       <h2>{user.name}</h2>

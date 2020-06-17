@@ -41,7 +41,11 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 30,
     fontSize: 16
   },
-  loginLogoutButtons: {}
+  loginLogoutButtons: {},
+  appbar: {
+    background:
+      'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(58,6,71,1) 100%) !important'
+  }
 }));
 
 const NavBar = () => {
@@ -60,7 +64,7 @@ const NavBar = () => {
 
   return (
     <div className={classes.navbarContainer}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.appbar}>
         <Toolbar>
           <div className={classes.leftControls}>
             <Typography variant="h6" className={classes.title}>
