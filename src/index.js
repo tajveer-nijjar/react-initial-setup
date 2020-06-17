@@ -5,7 +5,7 @@ import { Router } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/styles';
 
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './utils/serviceWorker';
 import configureStore from './store';
 import rootSaga from './sagas';
 import history from './history';
