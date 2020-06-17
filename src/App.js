@@ -35,7 +35,7 @@ function App() {
       <Switch>
         <PrivateRoute path="/home" component={HomePage} />
 
-        {/* <Redirect from="/" to="/home" /> */}
+        <Redirect from="/" to="/home" />
       </Switch>
     </React.Fragment>
   );
