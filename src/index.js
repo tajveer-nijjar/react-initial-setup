@@ -10,16 +10,35 @@ import configureStore from './store';
 import rootSaga from './sagas';
 import history from './utils/history';
 import theme from './utils/theme';
+import config from './constants/auth_config.json';
+import { Auth0Provider } from './react-auth0-spa';
 
 const store = configureStore();
 store.runSaga(rootSaga);
+
+// A function that routes the user to the right place
+// after login
+const onRedirectCallback = (appState) => {
+  history.push(
+    appState && appState.targetUrl
+      ? appState.targetUrl
+      : window.location.pathname
+  );
+};
 
 ReactDOM.render(
   <React.StrictMode>
     <Router history={history}>
       <Provider store={store}>
         <ThemeProvider theme={theme}>
-          <App />
+          <Auth0Provider
+            domain={config.domain}
+            client_id={config.clientId}
+            redirect_uri={window.location.origin}
+            onRedirectCallback={onRedirectCallback}
+          >
+            <App />
+          </Auth0Provider>
         </ThemeProvider>
       </Provider>
     </Router>

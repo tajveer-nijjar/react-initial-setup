@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
 import HomePage from './containers/HomePage';
+import { useAuth0 } from './react-auth0-spa';
+import NavBar from './containers/Navbar';
 
 const useStyles = makeStyles((theme) => ({
   heading: {
@@ -13,15 +15,26 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
+  const { loading } = useAuth0();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <React.Fragment>
       <CssBaseline />
-      <p className={classes.heading}>Welcome to Haztrak.</p>
-      <Switch>
-        <Route path="/home" component={HomePage} />
 
-        <Redirect from="/" to="/home" />
+      <div className="App">
+        <header>
+          <NavBar />
+        </header>
+      </div>
+
+      <Switch>
+        {/* <Route path="/home" component={HomePage} /> */}
+
+        {/* <Redirect from="/" to="/home" /> */}
       </Switch>
     </React.Fragment>
   );

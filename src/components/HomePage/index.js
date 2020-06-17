@@ -4,14 +4,7 @@ import React from 'react';
 
 function HomePage(props) {
   const { companyId, handleCompanyIdChangeClick } = props;
-  return (
-    <React.Fragment>
-      <p>Welcome to company: {companyId} </p>
-      <button onClick={handleCompanyIdChangeClick}>
-        Click here to change CompanyId
-      </button>
-    </React.Fragment>
-  );
+  return <React.Fragment></React.Fragment>;
 }
 
 HomePage.propTypes = {

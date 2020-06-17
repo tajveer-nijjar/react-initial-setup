@@ -5,17 +5,11 @@ import HomePage from '../../components/HomePage';
 import { changeCompanyId } from '../../actions';
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-    companyId: state.companies.companyId
-  };
+  return {};
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    handleCompanyIdChangeClick: () => {
-      dispatch(changeCompanyId());
-    }
-  };
+  return {};
 };
 
 export default withRouter(
