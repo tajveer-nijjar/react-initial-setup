@@ -26,6 +26,8 @@ const onRedirectCallback = (appState) => {
   );
 };
 
+let redirectUrl = `${window.location.origin}/home`;
+
 ReactDOM.render(
   <React.StrictMode>
     <Router history={history}>
@@ -34,7 +36,7 @@ ReactDOM.render(
           <Auth0Provider
             domain={config.domain}
             client_id={config.clientId}
-            redirect_uri={window.location.origin}
+            redirect_uri={redirectUrl}
             onRedirectCallback={onRedirectCallback}
           >
             <App />

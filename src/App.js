@@ -32,7 +32,7 @@ function App() {
       </div>
 
       <Switch>
-        {/* <Route path="/home" component={HomePage} /> */}
+        <Route path="/home" component={HomePage} />
 
         {/* <Redirect from="/" to="/home" /> */}
       </Switch>
