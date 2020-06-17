@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
+import Page from '../../components/Page';
 
 import { useAuth0 } from '../../react-auth0-spa';
 
@@ -65,39 +66,41 @@ const NavBar = () => {
   return (
     <div className={classes.navbarContainer}>
       <AppBar position="static" className={classes.appbar}>
-        <Toolbar>
-          <div className={classes.leftControls}>
-            <Typography variant="h6" className={classes.title}>
-              Haztrak
-            </Typography>
-
-            {isAuthenticated && (
-              <div className={classes.navigationLinks}>
-                <Link to="/home" className={classes.homeButton}>
-                  Home
-                </Link>
-              </div>
-            )}
-          </div>
-
-          <div className={classes.rightControls}>
-            <div className={classes.userName}>{user.name}</div>
-
-            <div className={classes.loginLogoutButtons}>
-              {!isAuthenticated && (
-                <Button color="inherit" onClick={() => loginWithRedirect({})}>
-                  Log in
-                </Button>
-              )}
+        <Page>
+          <Toolbar>
+            <div className={classes.leftControls}>
+              <Typography variant="h6" className={classes.title}>
+                Haztrak
+              </Typography>
 
               {isAuthenticated && (
-                <Button color="inherit" onClick={() => logout()}>
-                  Log out
-                </Button>
+                <div className={classes.navigationLinks}>
+                  <Link to="/home" className={classes.homeButton}>
+                    Home
+                  </Link>
+                </div>
               )}
             </div>
-          </div>
-        </Toolbar>
+
+            <div className={classes.rightControls}>
+              <div className={classes.userName}>{user.name}</div>
+
+              <div className={classes.loginLogoutButtons}>
+                {!isAuthenticated && (
+                  <Button color="inherit" onClick={() => loginWithRedirect({})}>
+                    Log in
+                  </Button>
+                )}
+
+                {isAuthenticated && (
+                  <Button color="inherit" onClick={() => logout()}>
+                    Log out
+                  </Button>
+                )}
+              </div>
+            </div>
+          </Toolbar>
+        </Page>
       </AppBar>
     </div>
   );

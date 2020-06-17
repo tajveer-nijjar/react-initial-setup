@@ -2,6 +2,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import { useAuth0 } from '../../react-auth0-spa';
+import Page from '../../components/Page';
 
 function HomePage(props) {
   const { loading, user } = useAuth0();
@@ -11,13 +12,15 @@ function HomePage(props) {
   }
 
   return (
-    <React.Fragment>
-      <img src={user.picture} alt="Profile" />
+    <Page>
+      <React.Fragment>
+        <img src={user.picture} alt="Profile" />
 
-      <h2>{user.name}</h2>
-      <p>{user.email}</p>
-      <code>{JSON.stringify(user, null, 2)}</code>
-    </React.Fragment>
+        <h2>{user.name}</h2>
+        <p>{user.email}</p>
+        <code>{JSON.stringify(user, null, 2)}</code>
+      </React.Fragment>
+    </Page>
   );
 }
 
