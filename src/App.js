@@ -2,6 +2,7 @@ import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import { Redirect, Route, Switch } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
 
 import HomePage from './containers/HomePage';
 import { useAuth0 } from './react-auth0-spa';
@@ -32,7 +33,7 @@ function App() {
       </div>
 
       <Switch>
-        <Route path="/home" component={HomePage} />
+        <PrivateRoute path="/home" component={HomePage} />
 
         {/* <Redirect from="/" to="/home" /> */}
       </Switch>
